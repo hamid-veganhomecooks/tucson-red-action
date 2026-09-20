@@ -31,16 +31,24 @@ export interface ClubEvent {
 export const events: ClubEvent[] = [
   // ---- Examples from your flyers. Edit the years and details, or delete. ----
   {
-    date: '2026-09-19',
-    time: '10:30 PM',
+    date: '2026-09-20',
+    time: '10:30 AM',
     title: 'Liberation Writing Workshop 3.0',
     kind: 'workshop',
     location: "BCC: 657 W St Mary's Rd, Unit C11 (May move to Revolutionary Grounds Cafe if space is too hot)",
     description: 'Bring poetry, political writing, or any other literary art.'
   },
   {
-    date: '2026-09-19',
+    date: '2026-09-20',
     time: '12:30 PM',
+    title: 'Reading: Caliban and the Witch: Women, The Body and Primitive Accumulation by Silvia Federici',
+    kind: 'reading',
+    location: 'Revolutionary Grounds Cafe',
+    description: 'Caliban and the Witch: Women, the Body and Primitive Accumulation is a 2004 feminist-Marxist history book by Italian-American scholar Silvia Federici that explores how the transition from feudalism to capitalism required a violent war against womens bodies and reproductive labor. Free and open to the public.',
+  },
+    {
+    date: '2026-09-27',
+    time: '10:30 AM',
     title: 'Reading: Caliban and the Witch: Women, The Body and Primitive Accumulation by Silvia Federici',
     kind: 'reading',
     location: 'Revolutionary Grounds Cafe',
