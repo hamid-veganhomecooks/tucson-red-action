@@ -29,7 +29,58 @@ export interface ClubEvent {
 }
 
 export const events: ClubEvent[] = [
-
+      {
+    date: '2026-10-18',
+    time: '12:30 PM',
+    title: 'Weekly Book Club',
+    kind: 'reading',
+    book: {
+      title: 'Caliban and the Witch: Women, the Body and Primitive Accumulation',
+      author: 'Silvia Federici',
+    },
+    location: 'Revolutionary Grounds Cafe',
+    description:
+      "Chapter 5 (Colonization) - Federici's 2004 feminist-Marxist history argues that the transition from feudalism to capitalism required a violent war against women's bodies and reproductive labor. Free and open to the public.",
+  },
+    {
+    date: '2026-10-11',
+    time: '12:30 PM',
+    title: 'Weekly Book Club',
+    kind: 'reading',
+    book: {
+      title: 'Caliban and the Witch: Women, the Body and Primitive Accumulation',
+      author: 'Silvia Federici',
+    },
+    location: 'Revolutionary Grounds Cafe',
+    description:
+      "Chapter 4 (The Great Witch Hunt) - Federici's 2004 feminist-Marxist history argues that the transition from feudalism to capitalism required a violent war against women's bodies and reproductive labor. Free and open to the public.",
+  },
+    {
+    date: '2026-10-4',
+    time: '10:30 AM',
+    title: 'Weekly Book Club',
+    kind: 'reading',
+    book: {
+      title: 'Caliban and the Witch: Women, the Body and Primitive Accumulation',
+      author: 'Silvia Federici',
+    },
+    location: 'Revolutionary Grounds Cafe',
+    description:
+      "Chapter 3 (The Great Caliban) - Federici's 2004 feminist-Marxist history argues that the transition from feudalism to capitalism required a violent war against women's bodies and reproductive labor. Free and open to the public.",
+  },
+  {
+    date: '2026-09-27',
+    time: '10:30 AM',
+    title: 'Weekly Book Club',
+    kind: 'reading',
+    book: {
+      title: 'Caliban and the Witch: Women, the Body and Primitive Accumulation',
+      author: 'Silvia Federici',
+    },
+    location: 'Revolutionary Grounds Cafe',
+    description:
+      "Chapter 2 (The Accumulation of Labor) - Federici's 2004 feminist-Marxist history argues that the transition from feudalism to capitalism required a violent war against women's bodies and reproductive labor. Free and open to the public.",
+  },
   {
     date: '2026-09-20',
     time: '10:30 AM',
