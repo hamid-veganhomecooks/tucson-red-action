@@ -1,7 +1,7 @@
 /**
  * The schedule.
  *
- * Add an entry for each meeting or event. Order does not matter — the site
+ * Add an entry for each meeting or event. Order does not matter, the site
  * sorts by date and splits upcoming from past on its own.
  *
  * Only `date`, `title`, and `kind` are required. Leave `location` off and the
@@ -29,14 +29,14 @@ export interface ClubEvent {
 }
 
 export const events: ClubEvent[] = [
-  // ---- Examples from your flyers. Edit the years and details, or delete. ----
+
   {
     date: '2026-09-20',
     time: '10:30 AM',
     title: 'Liberation Writing Workshop 3.0',
     kind: 'workshop',
-    location: "BCC: 657 W St Mary's Rd, Unit C11 (May move to Revolutionary Grounds Cafe if space is too hot)",
-    description: 'Bring poetry, political writing, or any other literary art.'
+    location: "BCC: 657 W St Mary's Rd, Unit C11",
+    description: 'Bring poetry, political writing, or any other literary art. We may move to Revolutionary Grounds Cafe if space is too hot. Free and open to the public.',
   },
   {
     date: '2026-09-20',

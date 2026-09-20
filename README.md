@@ -1,7 +1,7 @@
 # tucsonredaction.org
 
-The website for the Tucson Red Action Group — a politics and history reading
-group meeting Sundays at 4675 E Speedway Blvd, Tucson.
+The website for the Tucson Red Action Group, a politics and history reading
+group meeting Sundays at Revolutionary Grounds Cafe 4675 E Speedway Blvd, Tucson.
 
 It's a single static page built with [Astro](https://astro.build): hero,
 schedule, about, join, find-us. No database, no JavaScript shipped to the
@@ -43,13 +43,6 @@ everything older into a collapsed "Past events" list.
 The meeting time is currently blank, so the site just says "We meet Sundays".
 Fill in `meeting.time` (e.g. `'3:00 PM'`) and it appears everywhere at once.
 
-### The logo
-
-Drop your logo file at **`src/assets/logo.png`** (`.svg`, `.jpg`, and `.webp`
-also work) and it's picked up automatically in the header and optimized at build
-time. Until then the header shows a plain red-star placeholder.
-
-To change the browser tab icon too, replace `public/favicon.svg`.
 
 ### Everything else
 
