@@ -22,7 +22,15 @@ const logo = Object.values(found)[0]?.default;
 
 {
   logo ? (
-    <Image src={logo} alt={`${site.name} logo`} width={size} height={size} class="logo" />
+    <Image
+      src={logo}
+      alt={`${site.name} logo`}
+      width={size}
+      height={size}
+      densities={[1, 2, 3]}
+      loading="eager"
+      class="logo"
+    />
   ) : (
     <svg
       class="logo"
