@@ -14,10 +14,19 @@ const { size = 52 } = Astro.props;
  * back to the red star mark below.
  */
 const found = import.meta.glob<{ default: ImageMetadata }>(
-  '../assets/logo.{png,jpg,jpeg,webp,avif,svg}',
+  '../assets/logo.{svg,png,jpg,jpeg,webp,avif}',
   { eager: true }
 );
-const logo = Object.values(found)[0]?.default;
+
+/**
+ * Glob results come back in alphabetical order, not preference order, so with
+ * both logo.png and logo.svg on disk the PNG would win. Pick by extension
+ * instead: a vector beats a bitmap, and dropping in logo.svg just works.
+ */
+const entries = Object.entries(found);
+const logo = ['.svg', '.png', '.jpg', '.jpeg', '.webp', '.avif']
+  .map((ext) => entries.find(([path]) => path.endsWith(`logo${ext}`))?.[1]?.default)
+  .find(Boolean);
 ---
 
 {
@@ -42,7 +51,7 @@ const logo = Object.values(found)[0]?.default;
     >
       <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="7" />
       <path
-        fill="var(--red)"
+        fill="var(--accent)"
         d="M50 24 L57.6 43.4 L78.5 44.6 L62.3 57.8 L67.6 78 L50 66.8 L32.4 78 L37.7 57.8 L21.5 44.6 L42.4 43.4 Z"
       />
     </svg>
@@ -60,7 +69,7 @@ const logo = Object.values(found)[0]?.default;
     .logo {
       /* The mark is a single dark green, which all but vanishes on the dark
          page. Lift it rather than shipping a second file. */
-      filter: brightness(1.9) saturate(0.9);
+      filter: brightness(2.4);
     }
   }
 </style>
