@@ -1,0 +1,281 @@
+---
+import Base from '../layouts/Base.astro';
+import EventCard from '../components/EventCard.astro';
+import { upcomingEvents, pastEvents } from '../data/events';
+import { site, fullAddress, mapUrl } from '../data/site';
+
+const upcoming = upcomingEvents();
+const past = pastEvents();
+const mailto = `mailto:${site.email}`;
+---
+
+<Base>
+  <!-- ------------------------------------------------------------------ -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="kicker">{site.meeting.city}, {site.meeting.state}</p>
+      <h1>Tucson<br />Red Action<br />Group</h1>
+      <p class="lede">{site.tagline}</p>
+      <p class="standing">
+        We meet <strong>{site.meeting.day}</strong>{site.meeting.time && <> at <strong>{site.meeting.time}</strong></>} at
+        <a href={mapUrl} rel="noopener">{fullAddress}</a>.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#join">Join the group</a>
+        <a class="btn btn--ghost" href="#schedule">See the schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ -->
+  <section id="schedule">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Schedule</h2>
+        <p class="eyebrow">Readings, movie nights, and everything else</p>
+      </div>
+
+      {
+        upcoming.length > 0 ? (
+          <div class="events">
+            {upcoming.map((event) => (
+              <EventCard event={event} />
+            ))}
+          </div>
+        ) : (
+          <p class="empty">
+            Nothing on the calendar right now beyond our standing {site.meeting.day.toLowerCase()} meeting.{' '}
+            <a href={mailto}>Email us</a> and we'll tell you what we're reading.
+          </p>
+        )
+      }
+
+      {
+        past.length > 0 && (
+          <details class="archive">
+            <summary>Past events ({past.length})</summary>
+            <div class="events">
+              {past.map((event) => (
+                <EventCard event={event} past />
+              ))}
+            </div>
+          </details>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Tucson Red Action Group is a reading group for politics and history. We pick a book
+          together, work through it over a few weeks, and talk it out in person on
+          {' '}{site.meeting.day.toLowerCase()}.
+        </p>
+        <p>
+          You don't need a background in theory, a degree, or a finished reading to show up. Come
+          with questions. Disagreement is welcome; bad faith is not.
+        </p>
+        <p>
+          Between books we put on other things — movie nights, game nights, and workshops. Those are
+          usually open to anyone, and they're listed on the schedule above.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ -->
+  <section id="join">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Join us</h2>
+        <p class="eyebrow">New folks welcome</p>
+      </div>
+      <div class="join-grid">
+        <div class="prose">
+          <p>
+            Day-to-day we organize in a <strong>Signal group chat</strong> — that's where the
+            reading, the meeting reminders, and the event planning live.
+          </p>
+          <p>
+            The chat is invite-only. Email us and tell us a little about yourself, and we'll send
+            you an invite.
+          </p>
+          <div class="btn-row">
+            <a class="btn" href={mailto}>{site.email}</a>
+          </div>
+        </div>
+        <aside class="callout">
+          <h3>Before you email</h3>
+          <p>
+            If you'd rather just meet us first, come to any {site.meeting.day.toLowerCase()} meeting
+            or a movie night. No RSVP needed.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ -->
+  <section id="find-us">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Find us</h2>
+      </div>
+      <div class="find-grid">
+        <div>
+          <h3>Where</h3>
+          <p class="address">
+            {site.meeting.venue && <>{site.meeting.venue}<br /></>}
+            {site.meeting.street}<br />
+            {site.meeting.city}, {site.meeting.state} {site.meeting.zip}
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--ghost" href={mapUrl} rel="noopener">Open in maps</a>
+          </div>
+        </div>
+        <div>
+          <h3>When</h3>
+          <p>
+            {site.meeting.day}{site.meeting.time && <>, {site.meeting.time}</>}. Special events have
+            their own times and places — check the schedule.
+          </p>
+          <h3 class="stacked">Email</h3>
+          <p><a href={mailto}>{site.email}</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* --- hero --- */
+  .hero {
+    border-top: 0;
+    padding-block: clamp(3rem, 9vw, 6.5rem) clamp(3rem, 7vw, 5rem);
+    background:
+      repeating-linear-gradient(
+        135deg,
+        transparent 0 22px,
+        var(--rule-soft) 22px 24px
+      ),
+      var(--paper);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.9rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .lede {
+    font-size: clamp(1.1rem, 1rem + 0.7vw, 1.4rem);
+    font-weight: 600;
+    max-width: 30ch;
+    margin-bottom: 0.75rem;
+  }
+
+  .standing {
+    color: var(--muted);
+    max-width: 44ch;
+  }
+
+  /* --- schedule --- */
+  .empty {
+    max-width: var(--measure);
+    padding: 1.25rem;
+    border: 3px solid var(--rule-soft);
+  }
+
+  .archive {
+    margin-top: 2.5rem;
+    border-top: 3px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  .archive summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-block: 0.4rem;
+  }
+
+  .archive summary:hover {
+    color: var(--red);
+  }
+
+  .archive .events {
+    margin-top: 0.75rem;
+  }
+
+  /* --- about / join / find --- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .about-grid .section-head {
+    margin-bottom: 0;
+  }
+
+  .join-grid,
+  .find-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .callout {
+    border: 3px solid var(--rule);
+    background: var(--paper-raised);
+    padding: 1.35rem;
+  }
+
+  .callout h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .address {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .stacked {
+    margin-top: 1.5rem;
+  }
+
+  .find-grid h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 48rem) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-grid .section-head {
+      margin-bottom: 1rem;
+    }
+  }
+</style>

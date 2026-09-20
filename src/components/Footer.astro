@@ -1,0 +1,37 @@
+---
+import { site, fullAddress } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap inner">
+    <p class="line">
+      <strong>{site.name}</strong> — {site.meeting.day} at {fullAddress}
+    </p>
+    <p class="line">
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </p>
+    <p class="line fine">© {year}. Built by and for the group.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 12px solid var(--red);
+    background: var(--paper);
+    padding-block: 2.5rem 3rem;
+  }
+
+  .line {
+    margin: 0 0 0.35rem;
+    max-width: none;
+    font-size: 0.92rem;
+  }
+
+  .fine {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 1rem;
+  }
+</style>

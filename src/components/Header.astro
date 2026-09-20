@@ -1,0 +1,102 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../data/site';
+
+const links = [
+  { href: '/#schedule', label: 'Schedule' },
+  { href: '/#about', label: 'About' },
+  { href: '/#join', label: 'Join' },
+  { href: '/#find-us', label: 'Find us' },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <Logo size={46} />
+      <span class="brand-name">{site.shortName}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 3px solid var(--rule);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-block: 0.7rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .brand:hover {
+    color: var(--ink);
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    font-size: 1.05rem;
+    line-height: 1.05;
+    max-width: 7.5em;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-block: 0.25rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav a:hover {
+    border-bottom-color: var(--red);
+  }
+
+  @media (max-width: 30rem) {
+    .bar {
+      justify-content: center;
+      text-align: center;
+    }
+
+    nav ul {
+      justify-content: center;
+    }
+  }
+</style>

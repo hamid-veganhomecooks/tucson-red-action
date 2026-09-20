@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base title="Page not found" description="That page doesn't exist.">
+  <section class="wrap notfound">
+    <p class="kicker">404</p>
+    <h1>Nothing here</h1>
+    <p>That page doesn't exist — but the schedule does.</p>
+    <div class="btn-row">
+      <a class="btn" href="/">Back to the front page</a>
+      <a class="btn btn--ghost" href={`mailto:${site.email}`}>Email us</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    border-top: 0;
+    padding-block: clamp(3rem, 10vw, 7rem);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    color: var(--red);
+    margin-bottom: 0.8rem;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+</style>

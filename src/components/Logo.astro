@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../data/site';
+
+interface Props {
+  size?: number;
+}
+
+const { size = 52 } = Astro.props;
+
+/**
+ * Drop your logo at src/assets/logo.png (or .svg / .jpg / .webp) and it is
+ * picked up here automatically and optimized at build time. Until then we fall
+ * back to the red star mark below.
+ */
+const found = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/logo.{png,jpg,jpeg,webp,avif,svg}',
+  { eager: true }
+);
+const logo = Object.values(found)[0]?.default;
+---
+
+{
+  logo ? (
+    <Image src={logo} alt={`${site.name} logo`} width={size} height={size} class="logo" />
+  ) : (
+    <svg
+      class="logo"
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      role="img"
+      aria-label={`${site.name} logo`}
+    >
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="7" />
+      <path
+        fill="var(--red)"
+        d="M50 24 L57.6 43.4 L78.5 44.6 L62.3 57.8 L67.6 78 L50 66.8 L32.4 78 L37.7 57.8 L21.5 44.6 L42.4 43.4 Z"
+      />
+    </svg>
+  )
+}
+
+<style>
+  .logo {
+    display: block;
+    flex: none;
+    object-fit: contain;
+  }
+</style>
