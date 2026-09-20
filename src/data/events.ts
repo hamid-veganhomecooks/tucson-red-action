@@ -41,18 +41,28 @@ export const events: ClubEvent[] = [
   {
     date: '2026-09-20',
     time: '12:30 PM',
-    title: 'Reading: Caliban and the Witch: Women, The Body and Primitive Accumulation by Silvia Federici',
+    title: 'Weekly Book Club',
     kind: 'reading',
+    book: {
+      title: 'Caliban and the Witch: Women, the Body and Primitive Accumulation',
+      author: 'Silvia Federici',
+    },
     location: 'Revolutionary Grounds Cafe',
-    description: 'Caliban and the Witch: Women, the Body and Primitive Accumulation is a 2004 feminist-Marxist history book by Italian-American scholar Silvia Federici that explores how the transition from feudalism to capitalism required a violent war against womens bodies and reproductive labor. Free and open to the public.',
+    description:
+      "Federici's 2004 feminist-Marxist history argues that the transition from feudalism to capitalism required a violent war against women's bodies and reproductive labor. Free and open to the public.",
   },
-    {
+  {
     date: '2026-09-27',
     time: '10:30 AM',
-    title: 'Reading: Caliban and the Witch: Women, The Body and Primitive Accumulation by Silvia Federici',
+    title: 'Weekly Book Club',
     kind: 'reading',
+    book: {
+      title: 'Caliban and the Witch: Women, the Body and Primitive Accumulation',
+      author: 'Silvia Federici',
+    },
     location: 'Revolutionary Grounds Cafe',
-    description: 'Caliban and the Witch: Women, the Body and Primitive Accumulation is a 2004 feminist-Marxist history book by Italian-American scholar Silvia Federici that explores how the transition from feudalism to capitalism required a violent war against womens bodies and reproductive labor. Free and open to the public.',
+    description:
+      "Federici's 2004 feminist-Marxist history argues that the transition from feudalism to capitalism required a violent war against women's bodies and reproductive labor. Free and open to the public.",
   },
   {
     date: '2026-10-11',
