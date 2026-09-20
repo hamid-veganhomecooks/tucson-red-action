@@ -17,8 +17,8 @@ const mailto = `mailto:${site.email}`;
       <h1>Tucson<br />Red Action<br />Group</h1>
       <p class="lede">{site.tagline}</p>
       <p class="standing">
-        We meet <strong>{site.meeting.day}</strong>{site.meeting.time && <> at <strong>{site.meeting.time}</strong></>} at{' '}
-        <a href={mapUrl} rel="noopener">{venueAddress}</a>.
+        <span class="knockout">We meet <strong>{site.meeting.day}</strong>{site.meeting.time && <> at <strong>{site.meeting.time}</strong></>}</span><br />
+        <span class="knockout"><a href={mapUrl} rel="noopener">{venueAddress}</a></span>
       </p>
       <div class="btn-row">
         <a class="btn" href="#join">Join the group</a>
@@ -184,8 +184,24 @@ const mailto = `mailto:${site.email}`;
   }
 
   .standing {
-    color: var(--muted);
-    max-width: 44ch;
+    color: var(--ink);
+    max-width: 68ch;
+    /* Room between the two knockout bands so they read as separate lines. */
+    line-height: 1.9;
+  }
+
+  .standing .knockout {
+    /* A paper-colored band behind each line box, clearing the diagonal
+       stripes. The stripes are painted over --paper, so this just restores
+       the plain page color rather than adding a new tone. Padding is cloned
+       onto every line box so a wrap on narrow screens still gets a full band;
+       the negative margin pulls the first band's left edge back into
+       alignment with the headline. */
+    background: var(--paper);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0.2em 0.45em;
+    margin-left: -0.45em;
   }
 
   /* --- schedule --- */
