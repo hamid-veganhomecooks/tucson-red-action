@@ -55,4 +55,12 @@ const logo = Object.values(found)[0]?.default;
     flex: none;
     object-fit: contain;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .logo {
+      /* The mark is a single dark green, which all but vanishes on the dark
+         page. Lift it rather than shipping a second file. */
+      filter: brightness(1.9) saturate(0.9);
+    }
+  }
 </style>

@@ -1,4 +1,4 @@
-# Tucson Red Action Group — tucsonredaction.org
+# Theory and Cactus — tucsonredaction.org
 
 A static Astro site: one homepage (`src/pages/index.astro`) with anchored
 sections, plus a 404. Deployed to Cloudflare Pages from `dist/`.

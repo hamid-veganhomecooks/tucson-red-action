@@ -1,6 +1,6 @@
 # tucsonredaction.org
 
-The website for the Tucson Red Action Group, a politics and history reading
+The website for Theory and Cactus, a politics and history reading
 group meeting Sundays at Revolutionary Grounds Cafe 4675 E Speedway Blvd, Tucson.
 
 It's a single static page built with [Astro](https://astro.build): hero,

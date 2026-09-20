@@ -3,9 +3,9 @@
  * than one place: the address, the email, the meeting time.
  */
 export const site = {
-  name: 'Tucson Red Action Group',
-  shortName: 'Tucson Red Action',
-  initials: 'TRA',
+  name: 'Theory and Cactus',
+  shortName: 'Theory and Cactus',
+  initials: 'T&C',
   url: 'https://tucsonredaction.org',
   email: 'info@tucsonredaction.org',
 
@@ -13,7 +13,7 @@ export const site = {
 
   /** One or two sentences, used on the homepage and as the search-result blurb. */
   description:
-    'Tucson Red Action Group is a politics and history reading group that meets every Sunday on the east side. We read together, discuss in good faith, and put on movie nights, game nights, and workshops.',
+    'Theory and Cactus is a politics and history reading group that meets every Sunday on the east side. We read together, discuss in good faith, and put on movie nights, game nights, and workshops.',
 
   meeting: {
     day: 'Sundays',

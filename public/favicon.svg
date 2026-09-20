@@ -1,5 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Theory and Cactus">
   <rect width="100" height="100" fill="#f6f3ec"/>
-  <circle cx="50" cy="50" r="44" fill="none" stroke="#16130f" stroke-width="8"/>
-  <path fill="#d41317" d="M50 22 L58.6 43.6 L81.9 45 L63.8 59.7 L69.7 82.2 L50 69.7 L30.3 82.2 L36.2 59.7 L18.1 45 L41.4 43.6 Z"/>
+  <!-- Saguaro: trunk and two arms, simplified from the group logo. -->
+  <g fill="#224f2a">
+    <rect x="43" y="8" width="14" height="62" rx="7"/>
+    <path d="M23 34a6 6 0 0 1 12 0v10c0 5 4 8 8 8v12c-11 0-20-9-20-20z"/>
+    <path d="M65 26a6 6 0 0 1 12 0v18c0 11-9 20-20 20V52c4 0 8-3 8-8z"/>
+  </g>
+  <!-- Open book across the base. The page-colored stroke sits behind the fill
+       (paint-order) so the book stays separate from the cactus above it. -->
+  <path
+    fill="#224f2a"
+    stroke="#f6f3ec"
+    stroke-width="7"
+    stroke-linejoin="round"
+    paint-order="stroke fill"
+    d="M50 71c-5-6-18-9-34-8v22c16-1 29 2 34 8 5-6 18-9 34-8V63c-16-1-29 2-34 8z"
+  />
+  <!-- Page leaves knocked out, leaving a green cover edge and centre spine. -->
+  <path
+    fill="#f6f3ec"
+    d="M45 77c-6-3.6-15-5.3-24-5v10c9-.3 18 1.4 24 5zm10 0c6-3.6 15-5.3 24-5v10c-9-.3-18 1.4-24 5z"
+  />
 </svg>
