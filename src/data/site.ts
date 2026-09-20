@@ -30,5 +30,10 @@ export const site = {
 export const fullAddress =
   `${site.meeting.street}, ${site.meeting.city}, ${site.meeting.state} ${site.meeting.zip}`;
 
+/** The address as it reads on the homepage: venue name first. */
+export const venueAddress = site.meeting.venue
+  ? `${site.meeting.venue} - ${site.meeting.street}, ${site.meeting.city}, ${site.meeting.state}, ${site.meeting.zip}`
+  : fullAddress;
+
 export const mapUrl =
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
